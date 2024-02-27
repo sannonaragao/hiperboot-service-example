@@ -1,0 +1,27 @@
+buildscript {
+    ext {
+        springBootVersion = '3.2.0'
+        lombokVersion = '1.18.30'
+        springDepMngmnt = '1.1.4'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDepMngmnt}"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'io.github.sannonaragao', name: 'hiperboot', version: '0.5+'
+    implementation 'com.h2database:h2'
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.3.0'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
